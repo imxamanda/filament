@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\AdminResource\Widgets;
+namespace App\Filament\Widgets;
 
 use Filament\Widgets\ChartWidget;
 use App\Models\Treatment;
@@ -23,12 +23,12 @@ class TreatmentsChart extends ChartWidget
 
         return [
             'datasets' => [
-                [ 
-                   'label' => 'Treatments',
-                   'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
-                ],
+            [
+                'label' => 'Treatments',
+                'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
             ],
-            'labels' => $data->mao(fn (TrendValue $value) => $value->date),
+        ],
+        'labels' => $data->map(fn (TrendValue $value) => $value->date),
         ];
     }
 

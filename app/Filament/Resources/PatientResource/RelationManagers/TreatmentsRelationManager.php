@@ -15,6 +15,13 @@ class TreatmentsRelationManager extends RelationManager
 {
     protected static string $relationship = 'treatments';
 
+    public static function getRelations(): array
+    {
+        return [
+            RelationManagers\TreatmentsRelationManager::class,
+        ];
+    }   
+
     public function form(Form $form): Form
     {
         return $form
@@ -62,10 +69,5 @@ class TreatmentsRelationManager extends RelationManager
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\TreatmentsRelationManager::class,
-        ];
-    }   
+   
 }
